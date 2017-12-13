@@ -9,9 +9,11 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/status', (req, res) => {   // handeling endpoint is '/status'
+/* We have a register endpoint witch takes a post request and return 
+a message with the email that we provided*/
+app.post('/register', (req, res) => {   // handeling endpoint is '/status'
     res.send({                       // gets a request and sends back
-        message: 'heloo world!'      // a JSON obj with attribute 'message' and string 'heloo world'
+        message: 'Hello ${req.body.email}! Your user was registered!'      // a JSON obj with attribute 'message' and string 'heloo world'
     })
 })
 
